@@ -1,0 +1,149 @@
+baseurl = "http://app.peakly.co/docs"
+languageCode = "es-ar"
+title = "Documentación de Peakly"
+theme = "hugo-material-docs"
+metadataformat = "yaml"
+canonifyurls = true
+# Enable Google Analytics by entering your tracking id
+googleAnalytics = ""
+
+[params]
+	# General information
+	author = "Peakly"
+	description = "A material design theme for documentations."
+	copyright = "Todos los derechos reservados a Peakly"
+
+	# Repository
+	provider = ""
+	repo_url = ""
+
+	version = "1.0.0"
+	logo = "images/logo.png"
+	favicon = ""
+
+	permalink = "#"
+
+	# Custom assets
+	custom_css = []
+	custom_js  = []
+
+	# Syntax highlighting theme
+	highlight_css  = ""
+
+	[params.palette]
+    	primary = "teal"
+    	accent  = "green"
+
+    [params.font]
+    	text = "Ubuntu"
+    	code = "Ubuntu Mono"
+
+
+[social]
+	twitter = ""
+	github  = ""
+
+
+[[menu.main]]
+	name   = "Primera Vista"
+	url    = "inicio/primervista"
+	weight = 0
+
+
+[[menu.main]]
+	name   = "Como empezar"
+	url    = "como-empezar/"
+	weight = 10
+	
+[[menu.main]]
+	parent = "Como empezar"
+	name   = "Clientes"
+	url    = "como-empezar/clientes"
+	weight = 11
+	
+[[menu.main]]
+	parent = "Como empezar"
+	name   = "Proveedores"
+	url    = "como-empezar/proveedores"
+	weight = 12
+
+[[menu.main]]
+	parent = "Como empezar"
+	name   = "Talonarios de Venta"
+	url    = "como-empezar/talonarios"
+	weight = 13
+	
+[[menu.main]]
+	parent = "Como empezar"
+	name   = "Articulos"
+	url    = "como-empezar/articulos"
+	weight = 14
+	
+[[menu.main]]
+	name   = "Mi Organizacion"
+	url    = "mi-organizacion/"
+	weight = 20
+
+[[menu.main]]
+	parent = "Mi Organizacion"
+	name   = "Configuracion"
+	url    = "mi-organizacion/configuracion"
+	weight = 21
+
+[[menu.main]]
+	name   = "Factura Electronica"
+	url    = "factura-electronica/"
+	weight = 30
+	
+[[menu.main]]
+	parent = "Factura Electronica"
+	name   = "Alta de Servicios en AFIP"
+	url    = "factura-electronica/fe-alta-servicios"
+	weight = 31
+
+[[menu.main]]
+	parent = "Factura Electronica"
+	name   = "Alta de Puntos de Venta"
+	url    = "factura-electronica/fe-alta-punto-venta"
+	weight = 32
+	
+[[menu.main]]
+	parent = "Factura Electronica"
+	name   = "Solicitud de Certificado"
+	url    = "factura-electronica/solicitud-certificado"
+	weight = 33
+
+[[menu.main]]
+	parent = "Factura Electronica"
+	name   = "Alta de Certificado"
+	url    = "factura-electronica/alta-certificado"
+	weight = 34
+
+[[menu.main]]
+	parent = "Factura Electronica"
+	name   = "Alta de WebService"
+	url    = "factura-electronica/alta-ws"
+	weight = 35
+
+[[menu.main]]
+	parent = "Factura Electronica"
+	name   = "Renovación de Certificado"
+	url    = "factura-electronica/renovacion-certificado"
+	weight = 36
+	
+[[menu.main]]
+	name   = "Interfaces AFIP"
+	url    = "interfaces-afip/"
+	weight = 40
+
+[[menu.main]]
+	parent = "Interfaces AFIP"
+	name   = "CITI Compra & Venta"
+	url    = "interfaces-afip/citi"
+	weight = 41
+	
+[blackfriday]
+	smartypants	= true
+	fractions = true
+	smartDashes = true
+	plainIDAnchors = true
