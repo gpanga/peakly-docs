@@ -169,5 +169,73 @@ Alícuota IVA inexistente para el articulo
 {% endapi-method-spec %}
 {% endapi-method %}
 
+{% api-method method="put" host="https://api.peakly.co" path="/api/Stock/Articulos" %}
+{% api-method-summary %}
+Actualizar articulo
+{% endapi-method-summary %}
 
+{% api-method-description %}
+Actualiza el **Articulo** enviado en el body  
+  
+El campo **UnidadMedida\_id** o **UnidadMedida\_value** debe llevar valor. El mismo debe ser obtenido desde el listado de Tipos del combo **UnidadesMedidas**.  
+  
+El campo **AlicuotaIVA\_id** o **AlicuotaIVA\_value** debe llevar valor. El mismo debe ser obtenido desde el listado de Tipos del combo **TipoIVA**.  
+  
+El campo tipo debe ser "Producto" o "Servicio", los mismos pueden ser obtenidos desde el listado de Tipos del combo **TipoArticulo**.
+{% endapi-method-description %}
+
+{% api-method-spec %}
+{% api-method-request %}
+{% api-method-path-parameters %}
+{% api-method-parameter name="" type="string" required=false %}
+
+{% endapi-method-parameter %}
+{% endapi-method-path-parameters %}
+{% endapi-method-request %}
+
+{% api-method-response %}
+{% api-method-response-example httpCode=200 %}
+{% api-method-response-example-description %}
+
+{% endapi-method-response-example-description %}
+
+```
+
+```
+{% endapi-method-response-example %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
+{% endapi-method %}
+
+{% api-method method="delete" host="https://api.peakly.co" path="/api/Stock/Articulos/{id}" %}
+{% api-method-summary %}
+Eliminar articulo
+{% endapi-method-summary %}
+
+{% api-method-description %}
+
+{% endapi-method-description %}
+
+{% api-method-spec %}
+{% api-method-request %}
+{% api-method-path-parameters %}
+{% api-method-parameter name="id" type="number" required=true %}
+Articulo Id
+{% endapi-method-parameter %}
+{% endapi-method-path-parameters %}
+{% endapi-method-request %}
+
+{% api-method-response %}
+{% api-method-response-example httpCode=200 %}
+{% api-method-response-example-description %}
+
+{% endapi-method-response-example-description %}
+
+```
+
+```
+{% endapi-method-response-example %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
+{% endapi-method %}
 
