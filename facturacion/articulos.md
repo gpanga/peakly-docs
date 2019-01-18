@@ -1,7 +1,7 @@
 ---
 description: >-
-  Los artículos son productos o servicios que se registran dentro de Peakly y se
-  asocian tanto a la facturación como al movimiento de stock.
+  Los articulos son Productos o Servicios asociados a una Venta o Compra dentro
+  de Peakly.
 ---
 
 # Articulos
@@ -63,6 +63,59 @@ Artículos recuperados
     }
   ]
 }Pro
+```
+{% endapi-method-response-example %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
+{% endapi-method %}
+
+{% api-method method="get" host="https://api.peakly.co" path="/api/Stock/Articulos/{id}" %}
+{% api-method-summary %}
+Buscar Articulo por Id
+{% endapi-method-summary %}
+
+{% api-method-description %}
+Busca el articulo por el Id.
+{% endapi-method-description %}
+
+{% api-method-spec %}
+{% api-method-request %}
+{% api-method-path-parameters %}
+{% api-method-parameter name="" type="number" required=true %}
+Id del articulo
+{% endapi-method-parameter %}
+{% endapi-method-path-parameters %}
+{% endapi-method-request %}
+
+{% api-method-response %}
+{% api-method-response-example httpCode=200 %}
+{% api-method-response-example-description %}
+Articulo devuelto
+{% endapi-method-response-example-description %}
+
+```
+{
+  "rubro_value": "Sin Rubro",
+  "id": 17,
+  "descripcion": "Mi nuevo articulo",
+  "unidadMedida_id": 140,
+  "unidadMedida_value": "Unidades",
+  "alicuotaIVA_id": 94,
+  "alicuotaIVA_value": "21%",
+  "tipo": 0,
+  "rubro_id": 13,
+  "precio": 0
+}
+```
+{% endapi-method-response-example %}
+
+{% api-method-response-example httpCode=404 %}
+{% api-method-response-example-description %}
+Articulo no encontrado
+{% endapi-method-response-example-description %}
+
+```
+
 ```
 {% endapi-method-response-example %}
 {% endapi-method-response %}
@@ -220,15 +273,25 @@ Eliminar articulo
 {% api-method-request %}
 {% api-method-path-parameters %}
 {% api-method-parameter name="id" type="number" required=true %}
-Articulo Id
+Id del articulo
 {% endapi-method-parameter %}
 {% endapi-method-path-parameters %}
 {% endapi-method-request %}
 
 {% api-method-response %}
-{% api-method-response-example httpCode=200 %}
+{% api-method-response-example httpCode=204 %}
 {% api-method-response-example-description %}
+Articulo borrado correctamente
+{% endapi-method-response-example-description %}
 
+```
+
+```
+{% endapi-method-response-example %}
+
+{% api-method-response-example httpCode=404 %}
+{% api-method-response-example-description %}
+Articulo no encontrado
 {% endapi-method-response-example-description %}
 
 ```

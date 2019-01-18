@@ -1,10 +1,3 @@
----
-description: >-
-  Este endpoint permite recuperar las relaciones autorizadas para el usuario
-  enviado (CUIT / Clave Fiscal) que fueron delegadas y confirmadas anterior a la
-  llamada.
----
-
 # Obtener Relaciones
 
 {% api-method method="get" host="https://qa.api.peakly.co" path="/Relaciones/{cuit}/{claveFiscal}" %}

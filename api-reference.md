@@ -1,9 +1,3 @@
----
-description: >-
-  En la siguiente URL se puede acceder a la documentación y facilitador de
-  solicitudes de los distintos ambientes:
----
-
 # Explorador API
 
 Al acceder a un Explorador de API primero deberá iniciar sesión con su usuario de Peakly, luego podrá utilizar todas las siguientes solicitudes sin necesidad de autenticarse.

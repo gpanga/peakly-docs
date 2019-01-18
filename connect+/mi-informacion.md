@@ -1,10 +1,3 @@
----
-description: >-
-  Este modulo permite obtener toda la información disponible del contribuyente
-  que esta en la página de AFIP, tanto financiera, deuda monotributo o CBU
-  declarados.
----
-
 # Mi Información
 
 {% api-method method="get" host="https://qa.api.peakly.co" path="/MiInformacion/Financiera/{cuit}/{claveFiscal}" %}

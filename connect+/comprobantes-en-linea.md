@@ -1,9 +1,3 @@
----
-description: >-
-  Esta conexión permite obtener todos los comprobantes emitidos desde la página
-  de AFIP
----
-
 # Comprobantes en Linea
 
 {% api-method method="post" host="https://qa.api.peakly.co" path="/FacturasEnLinea/{cuit}/{claveFiscal}" %}

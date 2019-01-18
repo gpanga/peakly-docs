@@ -1,10 +1,3 @@
----
-description: >-
-  PEAKLY API es una API RESTful que accede a la información de Peakly usando los
-  métodos HTTP GET, PUT, POST, y DELETE, utilizando JSON como entrada y salida
-  de cada solicitud.
----
-
 # Initial page
 
 ## Overview

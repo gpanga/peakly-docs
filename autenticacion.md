@@ -1,10 +1,3 @@
----
-description: >-
-  Para comenzar a utilizar la API, primero se procederá a pedir un token. Para
-  ello es necesario realizar una solicitud POST con el usuario y contraseña,
-  para conseguir este token.
----
-
 # Autenticación
 
 Una vez que este confirmado se le devolverá la información de autenticación, esta incluye el token y su vencimiento. Todos los siguientes request que necesiten autenticación, ósea que no son públicos, deben llevar el header de Authorization.
