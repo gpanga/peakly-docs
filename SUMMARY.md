@@ -7,6 +7,7 @@
 ## Facturación
 
 * [Articulos](facturacion/articulos.md)
+* [Clientes](facturacion/clientes.md)
 
 ## Connect+
 
