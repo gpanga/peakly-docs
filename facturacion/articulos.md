@@ -1,9 +1,3 @@
----
-description: >-
-  Los articulos son Productos o Servicios asociados a una Venta o Compra dentro
-  de Peakly.
----
-
 # Articulos
 
 #### Probar desde el [explorador ](https://api.peakly.co/swagger/ui/index#!/Articulos/Articulos_Get)de API 

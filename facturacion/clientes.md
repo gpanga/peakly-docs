@@ -1,20 +1,20 @@
 ---
 description: >-
-  Los artículos son productos o servicios que se registran dentro de Peakly y se
-  asocian tanto a la facturación como al movimiento de stock.
+  Un Cliente es un consumidor del producto o servicio que ofrece tu organización
+  y por lo tanto estará asociado a tu facturación.
 ---
 
 # Clientes
 
-#### Probar desde el [explorador ](https://api.peakly.co/swagger/ui/index#!/Clientes/Clientes_Get)de API 
+## Probar desde el [explorador ](https://api.peakly.co/swagger/ui/index#!/Clientes/Clientes_Get)de API
 
-{% api-method method="get" host="https://api.peakly.co" path="/api/Stock/Clientes/Page" %}
+{% api-method method="get" host="https://api.peakly.co" path="/api/Ventas/Clientes/Page" %}
 {% api-method-summary %}
-Buscar artículos
+Buscar clientes
 {% endapi-method-summary %}
 
 {% api-method-description %}
-Busca todos los Artículos que estén activos \(no hayan sido eliminados\), que coincidan con el criterio de búsqueda en el campo **where**.  
+Busca todos los Clientes que estén activos \(no hayan sido eliminados\), que coincidan con el criterio de búsqueda en el campo **where**.  
 El campo **rows** indica la cantidad de registros por pagina y el campo **page** la pagina recuperar.  
 La respuesta devuelve la cantidad de registros totales y la cantidad de paginas.
 {% endapi-method-description %}
@@ -39,7 +39,7 @@ Tamaño de página
 {% api-method-response %}
 {% api-method-response-example httpCode=200 %}
 {% api-method-response-example-description %}
-Artículos recuperados
+Clientes recuperados
 {% endapi-method-response-example-description %}
 
 ```javascript
@@ -50,69 +50,103 @@ Artículos recuperados
   "userdata": null,
   "records":[
     {
-      "id": 9047,
-      "descripcion": "Mi Cliente",
-      "unidadMedida_id": 155,
-      "unidadMedida_value": "Packs",
-      "alicuotaIVA_id": 90,
-      "alicuotaIVA_value": "No Gravado",
-      "tipo": 0,
-      "rubro_id": 7009,
-      "rubro_value": "Sin Rubro",
-      "precio": 0
+      "id": 16207,
+      "activo": true,
+      "razonSocial": "Consumidor Final sin identificar",
+      "domicilio": null,
+      "codigoPostal": null,
+      "localidad": null,
+      "localizacion_id": null,
+      "localizacion_value": null,
+      "telefono": null,
+      "email": null,
+      "categoriaIva_id": 8,
+      "categoriaIva_value": "Consumidor Final",
+      "cuit": null,
+      "condicionVenta_id": 10,
+      "condicionVenta_value": "Contado",
+      "master_id": null,
+      "master_nombre": null,
+      "tipoDocumento_id": 182,
+      "observaciones": null
     }
   ]
-}Pro
+}
 ```
 {% endapi-method-response-example %}
 {% endapi-method-response %}
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="post" host="https://api.peakly.co" path="/api/Stock/Clientes" %}
+{% api-method method="post" host="https://api.peakly.co" path="/api/Ventas/Clientes" %}
 {% api-method-summary %}
 Crear Cliente
 {% endapi-method-summary %}
 
 {% api-method-description %}
 Crea el Cliente enviado en el body  
-  
-El campo **UnidadMedida\_id** o **UnidadMedida\_value** debe llevar valor. El mismo debe ser obtenido desde el listado de _Tipos_ del combo **UnidadesMedidas**.   
-  
-El campo **AlicuotaIVA\_id** o **AlicuotaIVA\_value** debe llevar valor. El mismo debe ser obtenido desde el listado de _Tipos_ del combo **TipoIVA**.  
-  
-El campo tipo debe ser "Producto" o "Servicio", los mismos pueden ser obtenidos desde el listado de _Tipos_ del combo **TipoCliente**.
+Para los valores de **Localizacion\_id** y **Localizacion\_value** utilizar el endpoint de información de Localizaciones.   
+Para los valores de **CategoriaIVA\_id** y **CategoriaIVA\_value** utilizar el endpoint de información de Categorías.   
+Para los valores de **CondicionVenta\_id** y **CondicionVenta\_value** utilizar el endpoint de información de ComboItems, el combo **CondicionCompraVenta**.
 {% endapi-method-description %}
 
 {% api-method-spec %}
 {% api-method-request %}
 {% api-method-body-parameters %}
-{% api-method-parameter name="descripcion" type="string" required=true %}
-Nombre del Producto/Servicio
+{% api-method-parameter name="tipoDocumento\_id" type="number" required=false %}
+Tipo de documento
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="unidadMedida\_id" type="string" required=false %}
-Unidad de medida, id
+{% api-method-parameter name="cuit" type="string" required=false %}
+CUIT / DNI, documento legal
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="unidadMedida\_value" type="string" required=false %}
-Unidad de medida, valor
+{% api-method-parameter name="razonSocial" type="string" required=false %}
+Razón Social / Nombre legal
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="alicuotaIVA\_id" type="number" required=false %}
-Alícuota de IVA, id
+{% api-method-parameter name="domicilio" type="string" required=false %}
+Domicilio, dirección principal
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="alicuotaIVA\_value" type="string" required=false %}
-Alícuota de IVA, valor
+{% api-method-parameter name="localidad" type="string" required=false %}
+Localidad, dirección principal
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="tipo" type="string" required=true %}
-"Producto" o "Servicio"
+{% api-method-parameter name="codigoPostal" type="string" required=false %}
+Código postal, dirección principal
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="precio" type="number" required=false %}
-Precio unitario
+{% api-method-parameter name="telefono" type="string" required=false %}
+Telefono principal
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="email" type="string" required=false %}
+Email del cliente. Pueden ser multiples separados por ;
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="condicionVenta\_id" type="number" required=false %}
+Condición de Venta, id
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="condicionVenta\_value" type="string" required=false %}
+Condición de Venta, valor
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="localizacion\_id" type="number" required=false %}
+Localización, id
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="localizacion\_value" type="string" required=false %}
+Localización, valor
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="categoriaIVA\_id" type="number" required=false %}
+Categoria de IVA, id
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="categoriaIVA\_value" type="string" required=false %}
+Categoria de IVA, valor
 {% endapi-method-parameter %}
 {% endapi-method-body-parameters %}
 {% endapi-method-request %}
@@ -123,18 +157,27 @@ Precio unitario
 Cliente creado correctamente
 {% endapi-method-response-example-description %}
 
-```
+```text
 {
-  "rubro_value": "Sin Rubro",
-  "id": 9058,
-  "descripcion": "asd",
-  "unidadMedida_id": 140,
-  "unidadMedida_value": "Unidades",
-  "alicuotaIVA_id": 94,
-  "alicuotaIVA_value": "21%",
-  "tipo": 0,
-  "rubro_id": 7009,
-  "precio": 0
+  "id": 140,
+  "activo": true,
+  "razonSocial": "Mi nuevo cliente",
+  "domicilio": "Av. Santa Fe 1234",
+  "codigoPostal": "1400",
+  "localidad": "Palermo",
+  "localizacion_id": 2,
+  "localizacion_value": "Buenos Aires",
+  "telefono": "string",
+  "email": null,
+  "categoriaIva_id": 1,
+  "categoriaIva_value": "Responsable Inscripto",
+  "cuit": "20-35961444-7",
+  "condicionVenta_id": 13,
+  "condicionVenta_value": "30 Dias",
+  "master_id": null,
+  "master_nombre": null,
+  "tipoDocumento_id": 180,
+  "observaciones": "Observaciones sobre cliente"
 }
 ```
 {% endapi-method-response-example %}
@@ -144,12 +187,12 @@ Cliente creado correctamente
 Algún campo es invalido
 {% endapi-method-response-example-description %}
 
-```
+```text
 {
   "message": "The request is invalid.",
   "modelState": {
-    "cliente.Descripcion": [
-      "La Descripción es requerida"
+    "cliente.CUIT": [
+      "El cuit es invalido"
     ]
   }
 }
@@ -158,30 +201,27 @@ Algún campo es invalido
 
 {% api-method-response-example httpCode=404 %}
 {% api-method-response-example-description %}
-No se encontró alícuota o unidad de medida.
+No se encontró algún dato relacionado.
 {% endapi-method-response-example-description %}
 
-```
-Alícuota IVA inexistente para el cliente
+```text
+Condición de venta inexistente para el cliente
 ```
 {% endapi-method-response-example %}
 {% endapi-method-response %}
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="put" host="https://api.peakly.co" path="/api/Stock/Clientes" %}
+{% api-method method="put" host="https://api.peakly.co" path="/api/Ventas/Clientes" %}
 {% api-method-summary %}
 Actualizar cliente
 {% endapi-method-summary %}
 
 {% api-method-description %}
 Actualiza el **Cliente** enviado en el body  
-  
-El campo **UnidadMedida\_id** o **UnidadMedida\_value** debe llevar valor. El mismo debe ser obtenido desde el listado de Tipos del combo **UnidadesMedidas**.  
-  
-El campo **AlicuotaIVA\_id** o **AlicuotaIVA\_value** debe llevar valor. El mismo debe ser obtenido desde el listado de Tipos del combo **TipoIVA**.  
-  
-El campo tipo debe ser "Producto" o "Servicio", los mismos pueden ser obtenidos desde el listado de Tipos del combo **TipoCliente**.
+Para los valores de **Localizacion\_id** y **Localizacion\_value** utilizar el endpoint de información de Localizaciones.   
+Para los valores de **CategoriaIVA\_id** y **CategoriaIVA\_value** utilizar el endpoint de información de Categorías.   
+Para los valores de **CondicionVenta\_id** y **CondicionVenta\_value** utilizar el endpoint de información de ComboItems, el combo **CondicionCompraVenta**.
 {% endapi-method-description %}
 
 {% api-method-spec %}
@@ -199,7 +239,7 @@ El campo tipo debe ser "Producto" o "Servicio", los mismos pueden ser obtenidos 
 
 {% endapi-method-response-example-description %}
 
-```
+```text
 
 ```
 {% endapi-method-response-example %}
@@ -207,13 +247,13 @@ El campo tipo debe ser "Producto" o "Servicio", los mismos pueden ser obtenidos 
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="delete" host="https://api.peakly.co" path="/api/Stock/Clientes/{id}" %}
+{% api-method method="delete" host="https://api.peakly.co" path="/api/Ventas/Clientes/{id}" %}
 {% api-method-summary %}
 Eliminar cliente
 {% endapi-method-summary %}
 
 {% api-method-description %}
-
+Elimina el cliente indicado por id en la solicitud. El borrado es lógico por lo cual se puede recuperar en caso de haber sido borrado.
 {% endapi-method-description %}
 
 {% api-method-spec %}
@@ -228,10 +268,10 @@ Cliente Id
 {% api-method-response %}
 {% api-method-response-example httpCode=200 %}
 {% api-method-response-example-description %}
-
+Cliente eliminado correctamente
 {% endapi-method-response-example-description %}
 
-```
+```text
 
 ```
 {% endapi-method-response-example %}
