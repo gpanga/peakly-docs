@@ -63,13 +63,13 @@ Artículos recuperados
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="get" host="https://api.peakly.co" path="/api/Stock/Articulos/{id}" %}
+{% api-method method="get" host="https://api.peakly.co" path="/api/Stock/Articulos/:id" %}
 {% api-method-summary %}
 Buscar Articulo por Id
 {% endapi-method-summary %}
 
 {% api-method-description %}
-Busca el articulo por el Id.
+Busca el articulo por el Identificador
 {% endapi-method-description %}
 
 {% api-method-spec %}

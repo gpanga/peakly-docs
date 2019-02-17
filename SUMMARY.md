@@ -2,6 +2,7 @@
 
 * [Initial page](README.md)
 * [Autenticación](autenticacion.md)
+* [Consideraciones](consideraciones.md)
 * [Explorador API](api-reference.md)
 
 ## Facturación

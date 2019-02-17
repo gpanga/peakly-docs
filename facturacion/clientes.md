@@ -78,6 +78,68 @@ Clientes recuperados
 {% endapi-method-spec %}
 {% endapi-method %}
 
+{% api-method method="get" host="https://api.peakly.co" path="/api/Ventas/Clientes/:id" %}
+{% api-method-summary %}
+Buscar cliente por id
+{% endapi-method-summary %}
+
+{% api-method-description %}
+Busca el cliente por el identificador enviado como parametro. 
+{% endapi-method-description %}
+
+{% api-method-spec %}
+{% api-method-request %}
+{% api-method-path-parameters %}
+{% api-method-parameter name="id" type="number" required=true %}
+Identificador del cliente
+{% endapi-method-parameter %}
+{% endapi-method-path-parameters %}
+{% endapi-method-request %}
+
+{% api-method-response %}
+{% api-method-response-example httpCode=200 %}
+{% api-method-response-example-description %}
+Cliente encontrado
+{% endapi-method-response-example-description %}
+
+```
+{
+  "id": 140,
+  "activo": true,
+  "razonSocial": "Mi nuevo cliente",
+  "domicilio": "Av. Santa Fe 1234",
+  "codigoPostal": "1400",
+  "localidad": "Palermo",
+  "localizacion_id": 2,
+  "localizacion_value": "Buenos Aires",
+  "telefono": "string",
+  "email": null,
+  "categoriaIva_id": 1,
+  "categoriaIva_value": "Responsable Inscripto",
+  "cuit": "20-35961444-7",
+  "condicionVenta_id": 13,
+  "condicionVenta_value": "30 Dias",
+  "master_id": null,
+  "master_nombre": null,
+  "tipoDocumento_id": 180,
+  "observaciones": "Observaciones sobre cliente"
+}
+```
+{% endapi-method-response-example %}
+
+{% api-method-response-example httpCode=404 %}
+{% api-method-response-example-description %}
+Cliente no encontrado
+{% endapi-method-response-example-description %}
+
+```
+
+```
+{% endapi-method-response-example %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
+{% endapi-method %}
+
 {% api-method method="post" host="https://api.peakly.co" path="/api/Ventas/Clientes" %}
 {% api-method-summary %}
 Crear Cliente
@@ -206,6 +268,69 @@ No se encontró algún dato relacionado.
 
 ```text
 Condición de venta inexistente para el cliente
+```
+{% endapi-method-response-example %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
+{% endapi-method %}
+
+{% api-method method="post" host="https://api.peakly.co" path="/api/Ventas/Clientes/CUIT/:cuit" %}
+{% api-method-summary %}
+Crear cliente 
+{% endapi-method-summary %}
+
+{% api-method-description %}
+Crea si no existe en base al CUIT enviado, solo soporta el envío de CUIT cualquier otro documento no se reconocerá.  
+Se cargaran los datos traídos desde AFIP para la creación del cliente y luego podrá ser personalizado realizando actualizaciones.
+{% endapi-method-description %}
+
+{% api-method-spec %}
+{% api-method-request %}
+{% api-method-path-parameters %}
+{% api-method-parameter name="cuit" type="string" required=true %}
+CUIT del contribuyente
+{% endapi-method-parameter %}
+{% endapi-method-path-parameters %}
+{% endapi-method-request %}
+
+{% api-method-response %}
+{% api-method-response-example httpCode=200 %}
+{% api-method-response-example-description %}
+Cliente creado correctamente
+{% endapi-method-response-example-description %}
+
+```
+{
+  "id": 140,
+  "activo": true,
+  "razonSocial": "Mi nuevo cliente",
+  "domicilio": "Av. Santa Fe 1234",
+  "codigoPostal": "1400",
+  "localidad": "Palermo",
+  "localizacion_id": 2,
+  "localizacion_value": "Buenos Aires",
+  "telefono": "string",
+  "email": null,
+  "categoriaIva_id": 1,
+  "categoriaIva_value": "Responsable Inscripto",
+  "cuit": "20-35961444-7",
+  "condicionVenta_id": 13,
+  "condicionVenta_value": "30 Dias",
+  "master_id": null,
+  "master_nombre": null,
+  "tipoDocumento_id": 180,
+  "observaciones": "Observaciones sobre cliente"
+}
+```
+{% endapi-method-response-example %}
+
+{% api-method-response-example httpCode=404 %}
+{% api-method-response-example-description %}
+CUIT no encontrado en AFIP
+{% endapi-method-response-example-description %}
+
+```
+
 ```
 {% endapi-method-response-example %}
 {% endapi-method-response %}
