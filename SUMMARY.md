@@ -9,6 +9,7 @@
 
 * [Articulos](facturacion/articulos.md)
 * [Clientes](facturacion/clientes.md)
+* [Comprobantes \(Ventas\)](facturacion/comprobantes-ventas.md)
 
 ## Connect+
 

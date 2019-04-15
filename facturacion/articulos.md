@@ -1,6 +1,6 @@
 # Articulos
 
-#### Probar desde el [explorador ](https://api.peakly.co/swagger/ui/index#!/Articulos/Articulos_Get)de API 
+## Probar desde el [explorador ](https://api.peakly.co/swagger/ui/index#!/Articulos/Articulos_Get)de API 
 
 {% api-method method="get" host="https://api.peakly.co" path="/api/Stock/Articulos/Page" %}
 {% api-method-summary %}
